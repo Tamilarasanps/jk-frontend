@@ -4,87 +4,66 @@ function ContactForm() {
   return (
     <form className="flex flex-col space-y-5">
       {/* Name */}
-      <div className="flex flex-col">
-        <label htmlFor="name" className="text-gray-700 font-medium mb-1">
-          Name
-        </label>
+      <div className="flex flex-col relative">
         <input
           type="text"
           id="name"
-          placeholder="Enter your name"
-          className="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+          placeholder="Name *"
+          className="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all placeholder-gray-500"
           required
         />
       </div>
 
       {/* Phone */}
-      <div className="flex flex-col">
-        <label htmlFor="phone" className="text-gray-700 font-medium mb-1">
-          Phone Number
-        </label>
+      <div className="flex flex-col relative">
         <input
           type="tel"
           id="phone"
-          placeholder="Enter your phone number"
+          placeholder="Phone Number *"
           pattern="[0-9]{10}"
-          className="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+          className="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all placeholder-gray-500"
           required
         />
       </div>
 
       {/* Email */}
-      <div className="flex flex-col">
-        <label htmlFor="email" className="text-gray-700 font-medium mb-1">
-          Email
-        </label>
+      <div className="flex flex-col relative">
         <input
           type="email"
           id="email"
-          placeholder="Enter your email"
-          className="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+          placeholder="Email *"
+          className="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all placeholder-gray-500"
           required
         />
       </div>
 
       {/* Location */}
-      <div className="flex flex-col">
-        <label htmlFor="location" className="text-gray-700 font-medium mb-1">
-          Location
-        </label>
+      <div className="flex flex-col relative">
         <input
           type="text"
           id="location"
-          placeholder="Enter your location"
-          className="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+          placeholder="Location"
+          className="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all placeholder-gray-500"
         />
       </div>
 
       {/* Land Area */}
-      <div className="flex flex-col">
-        <label htmlFor="landArea" className="text-gray-700 font-medium mb-1">
-          Land Area (in sqft)
-        </label>
+      <div className="flex flex-col relative">
         <input
           type="number"
           id="landArea"
-          placeholder="Enter your land area"
-          className="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+          placeholder="Land Area (in sqft)"
+          className="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all placeholder-gray-500"
         />
       </div>
 
       {/* Requirements */}
-      <div className="flex flex-col">
-        <label
-          htmlFor="requirements"
-          className="text-gray-700 font-medium mb-1"
-        >
-          Requirements
-        </label>
+      <div className="flex flex-col relative">
         <textarea
           id="requirements"
           rows="4"
-          placeholder="Please explain your requirements..."
-          className="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+          placeholder="Requirements"
+          className="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all placeholder-gray-500"
         ></textarea>
       </div>
 
@@ -95,7 +74,7 @@ function ContactForm() {
       >
         Send Message
       </button>
-    </form> 
+    </form>
   );
 }
 

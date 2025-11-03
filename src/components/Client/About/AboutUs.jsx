@@ -1,53 +1,67 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../Header";
+import customer from "../../../assets/customer.webp";
+import img from "../../../assets/hyb.png";
 
 function AboutUs() {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div className="bg-gray-50 text-gray-800">
+      <Header />
+
       {/* Hero Section */}
       <section className="relative bg-[url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c')] bg-cover bg-center h-[60vh] flex items-center justify-center">
-        <div className="bg-black bg-opacity-50 p-10 rounded-md text-center text-white">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Story</h1>
-          <p className="max-w-2xl mx-auto text-lg">
+        <div className="bg-black/60 p-10 rounded-md text-center text-white max-w-3xl mx-auto backdrop-blur-sm">
+          <h1 className="text-5xl font-extrabold mb-4 tracking-wide">
+            Our Story
+          </h1>
+          <p className="text-lg md:text-xl leading-relaxed text-gray-200">
             Building trust, quality, and innovation into every project we take
             on.
           </p>
         </div>
       </section>
 
-      {/* Section 1 */}
-      <section className="container mx-auto px-6 py-16 grid md:grid-cols-2 gap-12 items-center">
-        <img
-          src="https://images.unsplash.com/photo-1503387762-592deb58ef4e"
-          alt="Construction Experience"
-          className="rounded-lg shadow-lg"
-        />
-        <div>
-          <h2 className="text-3xl font-semibold mb-4">
+      {/* Section 1 - Experience */}
+      <section className="container mx-auto px-6 py-24 grid md:grid-cols-2 gap-16 items-center">
+        <div className="order-2 md:order-1">
+          <h2 className="text-4xl font-bold mb-6 text-orange-600">
             Experience To Be Trusted
           </h2>
-          <p className="text-gray-700 mb-4">
-            Jk Construction is a one-stop solution for all your construction
+          <p className="text-gray-600 mb-6 leading-relaxed text-lg">
+            JK Construction is a one-stop solution for all your construction
             needs. If you’re looking for professional construction services in
             Chennai, your search ends here. We deliver top-quality construction
             services.
           </p>
-          <p className="text-gray-700">
-            Jk Construction began with a mission to address the challenges
+          <p className="text-gray-700 leading-relaxed text-lg">
+            JK Construction began with a mission to address the challenges
             customers face when finding reliable building contractors — ensuring
             projects are delivered on time, within budget, and with
             uncompromised quality.
           </p>
         </div>
+        <img
+          src="https://images.unsplash.com/photo-1503387762-592deb58ef4e"
+          alt="Construction Experience"
+          className="rounded-xl shadow-xl w-full order-1 md:order-2"
+        />
       </section>
 
-      {/* Section 2 */}
-      <section className="bg-white py-16 px-6">
-        <div className="container mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 italic">
+      {/* Section 2 - Philosophy */}
+      <section className="bg-white py-24 px-6 text-center">
+        <div className="container mx-auto max-w-3xl">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 italic text-gray-900">
             “It All Starts With Why”
           </h2>
-          <p className="max-w-3xl mx-auto text-gray-700">
+          <p className="text-gray-700 leading-relaxed text-lg md:text-xl font-medium">
             Our journey began with a simple question — why is building a dream
             home still such a painful process? We realized it was time to bring
             trust and transparency to the construction industry.
@@ -56,17 +70,17 @@ function AboutUs() {
       </section>
 
       {/* Section 3 - Pain Points */}
-      <section className="container mx-auto px-6 py-16 grid md:grid-cols-2 gap-12 items-center">
+      <section className="container mx-auto px-6 py-24 grid md:grid-cols-2 gap-16 items-center">
         <img
-          src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a"
+          src={img}
           alt="Customer Pain Points"
-          className="rounded-lg shadow-lg order-1 md:order-2"
+          className="rounded-xl shadow-xl order-1 md:order-2 w-full object-cover"
         />
         <div className="order-2 md:order-1">
-          <h3 className="text-2xl font-semibold mb-6">
+          <h3 className="text-3xl font-bold mb-6 text-orange-600">
             Pain Points of a Customer
           </h3>
-          <ul className="space-y-4 text-gray-700 list-disc pl-5">
+          <ul className="space-y-4 text-gray-700 list-disc pl-6 leading-relaxed text-lg">
             <li>
               Finding a reliable residential building contractor in Chennai is
               challenging. Ensuring high-quality work and timely delivery is
@@ -91,21 +105,28 @@ function AboutUs() {
           </ul>
         </div>
       </section>
-      <section className="bg-gray-100 py-16 px-6">
-        <div className="container mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <img
-            src="https://images.unsplash.com/photo-1551836022-4c4c79ecde51"
-            alt="Our Goals - Construction Team Planning"
-            className="rounded-lg shadow-lg"
-          />
+
+      {/* Section 4 - Goals */}
+      <section className="bg-gray-100 py-24 px-6">
+        <div className="container mx-auto grid md:grid-cols-2 gap-16 items-center">
+          <div className="flex justify-center md:justify-start">
+            <img
+              src={customer}
+              alt="Our Goals - Construction Team Planning"
+              className="rounded-xl shadow-xl w-full md:w-4/5 lg:w-3/4 object-cover"
+            />
+          </div>
+
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-8">Our Goals</h2>
-            <p className="max-w-3xl text-gray-700 mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-orange-600">
+              Our Goals
+            </h2>
+            <p className="text-gray-700 mb-8 leading-relaxed text-lg md:text-xl font-medium">
               Customer satisfaction is our topmost priority. We started this
               company after listening to multiple customers’ pain points. We
               decided to solve them and deliver the best quality service.
             </p>
-            <ul className="space-y-4 list-disc pl-6 text-gray-700">
+            <ul className="space-y-4 list-disc pl-6 text-gray-700 leading-relaxed text-lg">
               <li>To make sure that there are no project delays.</li>
               <li>
                 To provide the best price to the customer and fix work quality

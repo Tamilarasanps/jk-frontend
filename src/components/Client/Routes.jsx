@@ -16,10 +16,12 @@ import CommercialConstruction from "./services/CommercialConstruction";
 import ArchitecturalConstruction from "./services/ArchitecturalConstruction";
 import StructuralDesigning from "./services/StructuralDesigning";
 import BuildingPlanApproval from "./services/BuildingPlanApproval";
+import ScrollToTop from "./ScrollToTop";
 
 export default function ClientRoutes() {
   return (
     <Router>
+      <ScrollToTop />
       <Header />
       <Routes>
         {/* <Route path="/" element={<Header />} /> */}
@@ -28,6 +30,7 @@ export default function ClientRoutes() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/pricing" element={<PricingPage />} />
         <Route path="/construction-cost" element={<PricingPage />} />
         <Route
           path="/services/TurnkeyCostDetailsUI"
