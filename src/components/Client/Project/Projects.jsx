@@ -50,7 +50,7 @@ function Projects() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 mt-20">
       {/* Projects Grid */}
       <section className="py-16 px-6 lg:px-20">
         <h2 className="text-3xl font-bold text-gray-800 text-center mb-10">
