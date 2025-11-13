@@ -15,9 +15,9 @@ function Footer() {
         <div className="md:w-1/3">
           <h3 className="text-[#FB8500] text-xl font-bold mb-4">About Us</h3>
           <p className="text-gray-400 leading-relaxed">
-            We are one of the best building contractors in Chennai, providing
-            top-notch construction services with a 15-year warranty. Your dream
-            project is in safe hands!
+            We are one of the best building contractors in Tamil Nadu, providing
+            top-notch construction services with 15+ years of experience. Your
+            dream project is in safe hands!
           </p>
         </div>
 

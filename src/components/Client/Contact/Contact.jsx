@@ -60,10 +60,10 @@ function Contact() {
               <span className="text-2xl text-blue-600">📧</span>
               <span className="text-lg text-gray-800">
                 <a
-                  href="mailto:info@jkconstruction.com"
+                  href="mailto:Jabbar.jkbuilders2025@gmail.com"
                   className="hover:text-blue-600 transition"
                 >
-                  info@jkconstruction.com
+                  Jabbar.jkbuilders2025@gmail.com
                 </a>
               </span>
             </div>
