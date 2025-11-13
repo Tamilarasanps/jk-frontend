@@ -1,33 +1,47 @@
 import React from "react";
-import { Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
+import { priceData } from "../config/priceData";
 
-const styles = StyleSheet.create({
-  page: {
-    flexDirection: "row",
-    backgroundColor: "#E4E4E4",
-  },
-  section: {
-    margin: 10,
-    padding: 10,
-    flexGrow: 1,
-  },
-});
+const PackageCard = ({ title, data, colorClass }) => {
+  console.log("title, data :", title);
+  console.log('data :',data)
 
-function PricingData() {
   return (
-    <div>
-      <Document>
-        <Page size="A4" style={styles.page}>
-          <View style={styles.section}>
-            <Text>Section #1</Text>
-          </View>
-          <View style={styles.section}>
-            <Text>Section #2</Text>
-          </View>
-        </Page>
-      </Document>
+    <div className={`p-6 border rounded-lg shadow-md ${colorClass}`}>
+      <h2 className="text-2xl font-bold text-gray-900 mb-1 text-center">
+        {title}
+      </h2>
+
+      <div className="text-3xl font-extrabold text-center text-gray-900">
+        ₹{data.Price}
+        <span className="text-lg font-normal text-gray-600"> /sq ft</span>
+      </div>
+
+      <div className="mt-4 space-y-1">
+        {Object.entries(data).map(
+          ([key, value], idx) =>
+            key !== "Price" && ( // skip Price since we already display it
+              <div className="flex justify-between" key={idx}>
+                <span className="font-medium text-gray-700">{key}</span>
+                {/* <span className="text-gray-500">{value}</span> */}
+              </div>
+            )
+        )}
+      </div>
     </div>
   );
-}
+};
+
+const PricingData = () => {
+  return (
+    <div className="mt-32">
+      <h2 className="text-3xl font-bold text-center mb-8">Hello</h2>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {Object.entries(priceData).map(([pkgName, pkgData]) => (
+          <PackageCard key={pkgName} title={pkgName} data={pkgData} />
+        ))}
+      </div>
+    </div>
+  );
+};
 
 export default PricingData;

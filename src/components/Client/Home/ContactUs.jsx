@@ -37,7 +37,7 @@ function ContactUs() {
           <h3 className="text-2xl font-semibold">
             Give Us a Call:{" "}
             <span className="text-[#FB8500] hover:underline cursor-pointer">
-              +91 9876543210
+              +91 959 755 2718
             </span>
           </h3>
         </div>

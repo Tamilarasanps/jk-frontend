@@ -2,49 +2,47 @@ import React from "react";
 import axios from "axios";
 import { BASE_URL } from "../../Client/config/api";
 import { useState } from "react";
+import { useEffect } from "react";
 
 function UploadProjects() {
-    const [selectedFiles, setSelectedFiles] = useState(null);
-    console.log("selectedFiles :", selectedFiles);
+  const [selectedFiles, setSelectedFiles] = useState(null);
+  console.log("selectedFiles :", selectedFiles);
 
-    const handleFileChange = (e) => {
-      const files = Array.from(e.target.files); // Convert FileList to Array
-      if (files.length > 0) {
-        const filePreviews = files.map((file) => ({
-          file,
-          preview: URL.createObjectURL(file),
-        }));
-        setSelectedFiles(filePreviews);
-      }
-    };
+  const handleFileChange = (e) => {
+    const files = Array.from(e.target.files); // Convert FileList to Array
+    if (files.length > 0) {
+      const filePreviews = files.map((file) => ({
+        file,
+        preview: URL.createObjectURL(file),
+      }));
+      setSelectedFiles(filePreviews);
+    }
+  };
 
+  const uploadFiles = async () => {
+    if (!selectedFiles) {
+      alert("Please select Images");
+    }
+    const formData = new FormData();
+    // console.log("formData :", formData);
+    selectedFiles.forEach((item) => formData.append("file", item.file));
+    try {
+      const response = await axios.post(`${BASE_URL}/api/upload`, formData, {
+        headers: {
+          "content-type": "multipart/form-data",
+        },
+      });
+      console.log("Response :", response.data);
+      alert("Images Uploaded Successfully");
+      setSelectedFiles("");
+    } catch (error) {
+      console.log("upload failed");
+      console.log("error :", error);
+      alert(error.message);
+    }
+  };
 
-    const uploadFiles = async () => {
-      if (!selectedFiles) {
-        alert("Please select Images");
-      }
-      const formData = new FormData();
-      // console.log("formData :", formData);
-      selectedFiles.forEach((item) => formData.append("files", item.file));
-      try {
-        const response = await axios.post(
-          `${BASE_URL}/api/upload/uploadFile`,
-          formData,
-          {
-            headers: {
-              "content-type": "multipart/form-data",
-            },
-          }
-        );
-        console.log("Response :", response.data);
-        alert("Images Uploaded Successfully");
-        setSelectedFiles("");
-      } catch (error) {
-        console.log("upload failed");
-        console.log("error :", error);
-        alert(error.message);
-      }
-    };
+  
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 px-6 py-12">

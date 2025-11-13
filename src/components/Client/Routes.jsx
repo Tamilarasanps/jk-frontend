@@ -17,6 +17,10 @@ import ArchitecturalConstruction from "./services/ArchitecturalConstruction";
 import StructuralDesigning from "./services/StructuralDesigning";
 import BuildingPlanApproval from "./services/BuildingPlanApproval";
 import ScrollToTop from "./ScrollToTop";
+import PricingData from "./Pricing/PricingData";
+import ConstructionCalculator from "./Pricing/ConstructionCalculator";
+import OurServices from "./services/OurServices";
+import ServiceCards from "./services/OurServices";
 
 export default function ClientRoutes() {
   return (
@@ -26,12 +30,18 @@ export default function ClientRoutes() {
       <Routes>
         {/* <Route path="/" element={<Header />} /> */}
         <Route path="/" element={<HomePage />} />
-        <Route path="/services" element={<Services />} />
+        {/* <Route path="/services" element={<Services />} /> */}
         <Route path="/projects" element={<Projects />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/pricing" element={<PricingPage />} />
+        <Route path="/pricingData" element={<PricingData />} />
         <Route path="/construction-cost" element={<PricingPage />} />
+        <Route
+          path="/construction-calculater"
+          element={<ConstructionCalculator />}
+        />
+        <Route path="/services" element={<ServiceCards />} />
         <Route
           path="/services/TurnkeyCostDetailsUI"
           element={<TurnkeyCostUI />}

@@ -33,8 +33,8 @@ function ClientReport() {
       {/* Warranty */}
       <div className="flex flex-col items-center bg-white shadow-md rounded-lg p-6 w-56 hover:shadow-lg transition duration-200">
         <FaShieldAlt className="text-red-500 text-5xl mb-3" />
-        <h2 className="text-3xl font-bold text-gray-800">15</h2>
-        <p className="text-gray-600 text-lg font-medium">Years Warranty</p>
+        <h2 className="text-3xl font-bold text-gray-800">15 +</h2>
+        <p className="text-gray-600 text-lg font-medium">Of Experience</p>
       </div>
     </div>
   );

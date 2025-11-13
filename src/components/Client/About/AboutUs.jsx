@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Header from "../Header";
 import customer from "../../../assets/customer.webp";
 import img from "../../../assets/hyb.png";
+import SocialMedai from "../Home/SocialMedai";
 
 function AboutUs() {
   const [scrollY, setScrollY] = useState(0);
@@ -137,6 +138,10 @@ function AboutUs() {
           </div>
         </div>
       </section>
+      <div className="mb-10">
+
+      <SocialMedai /> 
+      </div>
     </div>
   );
 }
