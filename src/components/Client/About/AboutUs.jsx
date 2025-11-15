@@ -39,7 +39,7 @@ function AboutUs() {
           <p className="text-gray-600 mb-6 leading-relaxed text-lg">
             JK Construction is a one-stop solution for all your construction
             needs. If you’re looking for professional construction services in
-            Chennai, your search ends here. We deliver top-quality construction
+            Tamil Nadu, your search ends here. We deliver top-quality construction
             services.
           </p>
           <p className="text-gray-700 leading-relaxed text-lg">
@@ -83,7 +83,7 @@ function AboutUs() {
           </h3>
           <ul className="space-y-4 text-gray-700 list-disc pl-6 leading-relaxed text-lg">
             <li>
-              Finding a reliable residential building contractor in Chennai is
+              Finding a reliable residential building contractor in Tamil Nadu is
               challenging. Ensuring high-quality work and timely delivery is
               even harder.
             </li>

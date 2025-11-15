@@ -8,7 +8,7 @@ const ConstructionCalculator = () => {
     "Premium Package": 2199,
     "Premium Plus": 2349,
     "Elite Package": 2449,
-    "Ultra Luxury Package": 3049,
+    "Royale Package": 3049,
   };
 
   const [areas, setAreas] = useState({

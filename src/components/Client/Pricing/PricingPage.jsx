@@ -20,23 +20,37 @@ const PackageCard = ({
 
     if (typeof content === "object" && content !== null) {
       return Object.entries(content).map(([key, value]) => (
-        <div key={key} className={`${indent ? "ml-4" : ""} mt-2`}>
-          <div className="font-semibold text-gray-800 mb-1">{key}</div>
-          <div className="ml-4">{renderContent(value, true)}</div>
+        <div key={key} className={`${indent ? "ml-4 " : ""} mt-2`}>
+          <div className="font-semibold text-gray-800 mb-1 ">{key}</div>
+          <div className="ml-4 bg-blue-200 ">{renderContent(value, true)}</div>
         </div>
       ));
     }
+    const colorClasses = [
+  "border-blue-500",
+  "border-green-500",
+  "border-yellow-500",
+  "border-purple-500",
+  "border-pink-500",
+];
 
-    return (
-      <div
-        className={`flex items-start gap-2 mb-2 ${
-          indent ? "ml-4" : ""
-        } bg-white hover:bg-indigo-50 transition-all duration-200 rounded-lg px-3 py-2.5 border border-gray-200 hover:border-indigo-300 text-gray-800 text-sm shadow-sm`}
-      >
-        <span className="text-indigo-500 text-lg leading-none mt-0.5">•</span>
-        <span className="leading-relaxed flex-1">{content}</span>
-      </div>
-    );
+return (
+  <div
+    className={`flex items-start gap-2 mb-2 ${
+      indent ? "ml-4" : ""
+    } 
+    bg-white hover:bg-indigo-50 
+    border-2 transition-all duration-200 rounded-lg 
+    px-3 py-2.5 
+    ${colorClass}                 // <-- border color here
+    hover:border-indigo-300 
+    text-gray-800 text-sm shadow-sm`}
+  >
+    <span className="text-indigo-500 text-lg leading-none mt-0.5">•</span>
+    <span className="leading-relaxed flex-1">{content}</span>
+  </div>
+);
+
   };
 
   return (
@@ -70,14 +84,14 @@ const PackageCard = ({
             >
               <button
                 onClick={() => toggleSection(key)}
-                className="w-full flex justify-between items-center p-4 bg-white hover:bg-gradient-to-r hover:from-gray-50 hover:to-white rounded-xl transition-all duration-200 group"
+                className="w-full flex justify-between  items-center p-4 bg-white hover:bg-gradient-to-r hover:from-gray-50 hover:to-white rounded-xl transition-all duration-200 group"
               >
-                <span className="font-semibold text-gray-900 group-hover:text-indigo-600 transition-colors">
+                <span className="font-semibold text-gray-900  group-hover:text-indigo-600 transition-colors">
                   {key.replace(/([A-Z])/g, " $1")}
                 </span>
                 <span
-                  className={`text-xl font-bold transition-colors ${
-                    expandedSections[key] ? "text-indigo-500" : "text-gray-400"
+                  className={`text-xl font-bold transition-colors  ${
+                    expandedSections[key] ? "text-indigo-500 " : "text-gray-400"
                   }`}
                 >
                   {expandedSections[key] ? "−" : "+"}
@@ -96,8 +110,6 @@ const PackageCard = ({
     </div>
   );
 };
-
-
 
 const TurnkeyCostUI = () => {
   const colorClasses = [

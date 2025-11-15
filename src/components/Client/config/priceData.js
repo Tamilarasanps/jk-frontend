@@ -1,5 +1,5 @@
 export const priceData = {
-  EssentialPackage: {
+  BasicPackage: {
     Price: "1999",
     Layout: [
       "2D Layout Plan",
