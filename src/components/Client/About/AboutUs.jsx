@@ -37,15 +37,15 @@ function AboutUs() {
             Experience To Be Trusted
           </h2>
           <p className="text-gray-600 mb-6 leading-relaxed text-lg">
-            JK Construction is a one-stop solution for all your construction
-            needs. If you’re looking for professional construction services in
-            Tamil Nadu, your search ends here. We deliver top-quality construction
-            services.
+            JK Property's and Buildings is a one-stop solution for all your
+            construction needs. If you’re looking for professional construction
+            services in Tamil Nadu, your search ends here. We deliver
+            top-quality construction services.
           </p>
           <p className="text-gray-700 leading-relaxed text-lg">
-            JK Construction began with a mission to address the challenges
-            customers face when finding reliable building contractors — ensuring
-            projects are delivered on time, within budget, and with
+            JK Property's and Buildings began with a mission to address the
+            challenges customers face when finding reliable building contractors
+            — ensuring projects are delivered on time, within budget, and with
             uncompromised quality.
           </p>
         </div>
@@ -83,8 +83,8 @@ function AboutUs() {
           </h3>
           <ul className="space-y-4 text-gray-700 list-disc pl-6 leading-relaxed text-lg">
             <li>
-              Finding a reliable residential building contractor in Tamil Nadu is
-              challenging. Ensuring high-quality work and timely delivery is
+              Finding a reliable residential building contractor in Tamil Nadu
+              is challenging. Ensuring high-quality work and timely delivery is
               even harder.
             </li>
             <li>
@@ -139,8 +139,7 @@ function AboutUs() {
         </div>
       </section>
       <div className="mb-10">
-
-      <SocialMedai /> 
+        <SocialMedai />
       </div>
     </div>
   );
