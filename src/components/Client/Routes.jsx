@@ -21,6 +21,7 @@ import PricingData from "./Pricing/PricingData";
 import ConstructionCalculator from "./Pricing/ConstructionCalculator";
 import OurServices from "./services/OurServices";
 import ServiceCards from "./services/OurServices";
+import PricePdf from "./Pricing/PricePdf";
 
 export default function ClientRoutes() {
   return (
@@ -34,7 +35,7 @@ export default function ClientRoutes() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/pricing" element={<PricingPage />} />
+        <Route path="/pricing" element={<PricePdf />} />
         <Route path="/pricingData" element={<PricingData />} />
         <Route path="/construction-cost" element={<PricingPage />} />
         <Route
@@ -62,6 +63,8 @@ export default function ClientRoutes() {
           path="/services/building-plan-approval"
           element={<BuildingPlanApproval />}
         />
+
+        <Route path="/pricePdf" element={<PricePdf />} />
 
         {/* admin routes */}
 
