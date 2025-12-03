@@ -41,8 +41,33 @@ function UploadProjects() {
       alert(error.message);
     }
   };
+  const [images, setImages] = useState([]);
+  useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const response = await axios.get(`${BASE_URL}/api/getImages`);
+        setImages(response.data.data || []);
+      } catch (error) {
+        console.error("Error fetching images:", error);
+      }
+    };
 
-  
+    fetchImages();
+  }, []);
+
+  const deleteImage = async (id) => {
+    try {
+      const response = await axios.delete(`${BASE_URL}/api/deleteImage/${id}`);
+console.log('response :',response)
+      // remove deleted image from UI without reload
+      setImages((prev) => prev.filter((img) => img._id !== id));
+
+      alert("Image deleted successfully");
+    } catch (error) {
+      console.log(error);
+      alert("Failed to delete image");
+    }
+  };
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 px-6 py-12">
@@ -103,6 +128,27 @@ function UploadProjects() {
         >
           Upload Project
         </button>
+      </div>
+      <div className="flex flex-wrap justify-center mt-10">
+        {[...images].reverse().map((item) => (
+          <div key={item._id} className="px-2 sm:px-4 mb-6">
+            <div className="relative w-64 h-64 bg-white shadow-md rounded-xl overflow-hidden hover:shadow-xl transition-all duration-500 group">
+              <img
+                src={`${BASE_URL}/uploads/${item.image}`}
+                alt="Project"
+                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+              />
+
+              {/* DELETE BUTTON */}
+              <button
+                onClick={() => deleteImage(item._id)}
+                className="absolute bottom-2 right-2 bg-red-600 text-white px-3 py-1 rounded-md text-sm shadow hover:bg-red-700"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

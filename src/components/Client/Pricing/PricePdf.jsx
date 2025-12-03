@@ -5,7 +5,8 @@ import ConstructionCalculator from "./ConstructionCalculator";
 export default function PricePdf() {
   return (
     <div className="">
-      <div className="w-full h-screen p-2">
+      
+      <div className="w-full h-screen p-2 mt-20">
         <iframe
           src={pricePdf}
           className="w-full h-full rounded-lg shadow"
