@@ -4,9 +4,9 @@ const ConstructionCalculator = () => {
   const [selectedPackage, setSelectedPackage] = useState("Basic Package");
 
   const packageRates = {
-    "Basic Package": 1999,
-    "Premium Package": 2199,
-    "Premium Plus": 2349,
+    "Basic Package": 2199,
+    "Premium Package": 2399,
+    "Premium Plus": 2599,
   };
 
   const [areas, setAreas] = useState({
