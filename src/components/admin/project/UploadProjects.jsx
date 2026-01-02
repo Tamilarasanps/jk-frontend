@@ -58,7 +58,7 @@ function UploadProjects() {
   const deleteImage = async (id) => {
     try {
       const response = await axios.delete(`${BASE_URL}/api/deleteImage/${id}`);
-console.log('response :',response)
+      console.log("response :", response);
       // remove deleted image from UI without reload
       setImages((prev) => prev.filter((img) => img._id !== id));
 

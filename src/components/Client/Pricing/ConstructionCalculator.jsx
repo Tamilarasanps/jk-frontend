@@ -1,12 +1,15 @@
 import React, { useState, useMemo } from "react";
+import { useEffect } from "react";
+import axios from "axios";
+import { BASE_URL } from "../config/api";
 
 const ConstructionCalculator = () => {
   const [selectedPackage, setSelectedPackage] = useState("Basic Package");
 
   const packageRates = {
-    "Basic Package": 2199,
-    "Premium Package": 2399,
-    "Premium Plus": 2599,
+    "Basic package": 2199,
+    "Standard package": 2399,
+    "Premium package": 2599,
   };
 
   const [areas, setAreas] = useState({
@@ -56,6 +59,24 @@ const ConstructionCalculator = () => {
     [totals]
   );
 
+  const [packageData, setPackageData] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${BASE_URL}/prices`);
+        const data = response.data.data[0]; // Since it's an array with 1 object
+        const transformedData = {
+          "Basic package": parseInt(data.basicPackage),
+          "Standard package": parseInt(data.standardPackage),
+          "Premium package": parseInt(data.premiumPackage),
+        };
+        setPackageData(transformedData);
+      } catch (error) {
+        console.log("error :", error);
+      }
+    };
+    fetchData();
+  }, []);
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-6 mt-20">
       <h1 className="text-4xl font-bold text-center text-[#FB8500] mb-2">
@@ -76,9 +97,9 @@ const ConstructionCalculator = () => {
             onChange={(e) => setSelectedPackage(e.target.value)}
             className="border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#FB8500]"
           >
-            {Object.keys(packageRates).map((pkg) => (
+            {Object.keys(packageData).map((pkg) => (
               <option key={pkg} value={pkg}>
-                {pkg} @ ₹{packageRates[pkg]}/sqft
+                {pkg} @ ₹{packageData[pkg]}/sqft
               </option>
             ))}
           </select>

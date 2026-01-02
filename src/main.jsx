@@ -3,9 +3,11 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 
 import ClientRoutes from "./components/Client/Routes.jsx";
+import AdminLayout from "./components/admin/AdminLayout.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <ClientRoutes />
+    <ClientRoutes / >
+    {/* <AdminLayout /> */}
   </StrictMode>
 );

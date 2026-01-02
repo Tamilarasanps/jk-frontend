@@ -1,76 +1,178 @@
 import React from "react";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
+
 import Header from "./Header";
+import Footer from "./Footer/Footer";
+import ScrollToTop from "./ScrollToTop";
+
 import HomePage from "./Home/HomePage";
-import Services from "./services/Services";
 import Projects from "./Project/Projects";
 import AboutUs from "./About/AboutUs";
 import Contact from "./Contact/Contact";
 import PricingPage from "./Pricing/PricingPage";
-import Footer from "./Footer/Footer";
+import PricingData from "./Pricing/PricingData";
+import ConstructionCalculator from "./Pricing/ConstructionCalculator";
+import PricePdf from "./Pricing/PricePdf";
 
-import UploadProjects from "../admin/project/UploadProjects";
-import TurnkeyCostDetailsUI from "./services/TurnkeyHouse";
+import ServiceCards from "./services/OurServices";
 import TurnkeyCostUI from "./services/TurnkeyHouse";
 import CommercialConstruction from "./services/CommercialConstruction";
 import ArchitecturalConstruction from "./services/ArchitecturalConstruction";
 import StructuralDesigning from "./services/StructuralDesigning";
 import BuildingPlanApproval from "./services/BuildingPlanApproval";
-import ScrollToTop from "./ScrollToTop";
-import PricingData from "./Pricing/PricingData";
-import ConstructionCalculator from "./Pricing/ConstructionCalculator";
-import OurServices from "./services/OurServices";
-import ServiceCards from "./services/OurServices";
-import PricePdf from "./Pricing/PricePdf";
+
+// ✅ Admin
+import AdminLayout from "../admin/AdminLayout";
+import UploadProjects from "../admin/project/UploadProjects";
+import PriceUpdate from "../admin/costing/PriceUpdate";
+import PdfUpload from "../admin/project/PdfUpload";
 
 export default function ClientRoutes() {
   return (
     <Router>
       <ScrollToTop />
-      <Header />
+
       <Routes>
-        {/* <Route path="/" element={<Header />} /> */}
-        <Route path="/" element={<HomePage />} />
-        {/* <Route path="/services" element={<Services />} /> */}
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/aboutus" element={<AboutUs />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/pricing" element={<PricePdf />} />
-        <Route path="/pricingData" element={<PricingData />} />
-        <Route path="/construction-cost" element={<PricingPage />} />
+        {/* ---------- CLIENT ROUTES ---------- */}
+        <Route
+          path="/"
+          element={
+            <>
+              <Header />
+              <HomePage />
+              <Footer />
+            </>
+          }
+        />
+
+        <Route
+          path="/projects"
+          element={
+            <>
+              <Header />
+              <Projects />
+              <Footer />
+            </>
+          }
+        />
+
+        <Route
+          path="/aboutus"
+          element={
+            <>
+              <Header />
+              <AboutUs />
+              <Footer />
+            </>
+          }
+        />
+
+        <Route
+          path="/contact"
+          element={
+            <>
+              <Header />
+              <Contact />
+              <Footer />
+            </>
+          }
+        />
+
+        <Route
+          path="/pricing"
+          element={
+            <>
+              <Header />
+              <PricePdf />
+              <Footer />
+            </>
+          }
+        />
+
         <Route
           path="/construction-calculater"
-          element={<ConstructionCalculator />}
+          element={
+            <>
+              <Header />
+              <ConstructionCalculator />
+              <Footer />
+            </>
+          }
         />
-        <Route path="/services" element={<ServiceCards />} />
+
+        <Route
+          path="/services"
+          element={
+            <>
+              <Header />
+              <ServiceCards />
+              <Footer />
+            </>
+          }
+        />
+
         <Route
           path="/services/TurnkeyCostDetailsUI"
-          element={<TurnkeyCostUI />}
+          element={
+            <>
+              <Header />
+              <TurnkeyCostUI />
+              <Footer />
+            </>
+          }
         />
+
         <Route
           path="/services/commercial-construction"
-          element={<CommercialConstruction />}
+          element={
+            <>
+              <Header />
+              <CommercialConstruction />
+              <Footer />
+            </>
+          }
         />
+
         <Route
           path="/services/architectural-construction"
-          element={<ArchitecturalConstruction />}
+          element={
+            <>
+              <Header />
+              <ArchitecturalConstruction />
+              <Footer />
+            </>
+          }
         />
+
         <Route
           path="/services/structural-designing"
-          element={<StructuralDesigning />}
+          element={
+            <>
+              <Header />
+              <StructuralDesigning />
+              <Footer />
+            </>
+          }
         />
+
         <Route
           path="/services/building-plan-approval"
-          element={<BuildingPlanApproval />}
+          element={
+            <>
+              <Header />
+              <BuildingPlanApproval />
+              <Footer />
+            </>
+          }
         />
 
-        <Route path="/pricePdf" element={<PricePdf />} />
-
-        {/* admin routes */}
-
-        <Route path="/admin" element={<UploadProjects />} />
+        {/* ---------- ADMIN ROUTES ---------- */}
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route path="price-update" element={<PriceUpdate />} />
+          <Route path="pdf-upload" element={<PdfUpload />} />
+          <Route path="project-upload" element={<UploadProjects />} />
+        </Route>
       </Routes>
-      <Footer />
     </Router>
   );
 }

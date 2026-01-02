@@ -69,7 +69,7 @@ export default function HomePage() {
                   Our Portfolio
                 </button>
                 <button
-                  onClick={() => navigate("/construction-cost")}
+                  onClick={() => navigate("/pricing")}
                   className="bg-green-600 hover:bg-green-700 px-6 py-3 rounded-md text-white font-semibold shadow-lg transition-all duration-300"
                 >
                   Get Free Quote
