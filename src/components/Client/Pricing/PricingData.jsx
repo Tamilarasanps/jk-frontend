@@ -2,8 +2,7 @@ import React from "react";
 import { priceData } from "../config/priceData";
 
 const PackageCard = ({ title, data, colorClass }) => {
-  console.log("title, data :", title);
-  console.log('data :',data)
+
 
   return (
     <div className={`p-6 border rounded-lg shadow-md ${colorClass}`}>

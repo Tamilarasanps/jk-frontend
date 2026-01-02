@@ -6,7 +6,6 @@ import { useEffect } from "react";
 
 function UploadProjects() {
   const [selectedFiles, setSelectedFiles] = useState(null);
-  console.log("selectedFiles :", selectedFiles);
 
   const handleFileChange = (e) => {
     const files = Array.from(e.target.files); // Convert FileList to Array
@@ -32,12 +31,9 @@ function UploadProjects() {
           "content-type": "multipart/form-data",
         },
       });
-      console.log("Response :", response.data);
       alert("Images Uploaded Successfully");
       setSelectedFiles("");
     } catch (error) {
-      console.log("upload failed");
-      console.log("error :", error);
       alert(error.message);
     }
   };
@@ -58,13 +54,11 @@ function UploadProjects() {
   const deleteImage = async (id) => {
     try {
       const response = await axios.delete(`${BASE_URL}/api/deleteImage/${id}`);
-      console.log("response :", response);
       // remove deleted image from UI without reload
       setImages((prev) => prev.filter((img) => img._id !== id));
 
       alert("Image deleted successfully");
     } catch (error) {
-      console.log(error);
       alert("Failed to delete image");
     }
   };
