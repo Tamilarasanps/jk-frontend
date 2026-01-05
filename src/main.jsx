@@ -7,7 +7,6 @@ import AdminLayout from "./components/admin/AdminLayout.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <ClientRoutes / >
-    {/* <AdminLayout /> */}
+    <ClientRoutes />
   </StrictMode>
 );
